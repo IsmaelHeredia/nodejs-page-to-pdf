@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Convertir PDF
+    link(rel="icon" href="/images/notas.png")
+
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='/bootstrap/js/bootstrap.min.js')
+
+    script(src='/js/jquery-3.3.1.js')
+
+    link(rel='stylesheet', href='/toastr/toastr.css')
+    script(src='/toastr/toastr.min.js')
+
+    link(rel='stylesheet', href='/css/style.css')
+
+  body
+    nav(class='navbar navbar-expand-lg navbar-dark bg-primary')
+      div(class='container-fluid')
+        a(class='navbar-brand',href='#') Convertir página en PDF
+        button(class='navbar-toggler',type='button',data-bs-toggle='collapse', data-bs-target='#navbarColor01',aria-controls='navbarColor01',aria-expanded='false', aria-label='Toggle navigation')
+            span(class='navbar-toggler-icon')
+
+    div(class='container-fluid',style='margin-top: 50px')
+      block content
+      
+      script.
+
+        $(document).ready( function() {
+
+          $("#divCargando").hide();
+          
+          $('#btnConvertir').click(function(e){  
+
+            e.preventDefault();
+
+            var url = $("#url").val();
+
+            if(url != "") {
+
+              $.ajax({ 
+                url: '/convertir',
+                type: 'POST',
+                cache: false, 
+                data: { url : url }, 
+                beforeSend: function() {
+                  $("#divCargando").show();
+                },
+                success: function(data){
+                  $("#divCargando").hide();
+                  var url = data.url;
+                  var link=document.createElement('a');
+                  document.body.appendChild(link);
+                  link.href=url;
+                  link.setAttribute('target', '_blank');
+                  link.click();
+                  toastr.success('PDF Generado');
+                }
+                ,error: function(jqXHR, textStatus, err){
+                  toastr.error('Ocurrio un error generando el PDF');
+                  console.log(textStatus);
+                  console.log(err);
+                }
+              });
+
+            } else {
+              toastr.warning('Ingrese URL');
+            }
+            
+          });  
+
+        });

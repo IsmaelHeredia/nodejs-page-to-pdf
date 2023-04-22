@@ -1,0 +1,18 @@
+extends ../layouts/base
+
+block content
+
+    div(class="card card-primary form_url")
+        div(class="card-header bg-primary") Ingrese URL
+        div(class="card-body")
+            div(class="row")
+                div(class="col-lg-10")
+                    input(type="text" id="url" name="url" class="form-control" value="https://www.itsolutionstuff.com/post/laravel-10-rest-api-authentication-using-sanctum-tutorialexample.html")
+                div(class="col-lg-2")
+                    button(id="btnConvertir" name="btnConvertir" class="btn btn-primary") Convertir
+
+    br
+
+    div(id="divCargando" name="divCargando")
+        div(align="center")
+            h4 Convirtiendo ...
