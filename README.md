@@ -1,8 +1,8 @@
-# Convert page in PDF
+# Convertir página en PDF
 
-It is an application made in NodeJS to convert any page into a PDF.
+ Es una aplicación hecha en NodeJS para convertir cualquier pagina en un PDF.
 
-Some images:
+Unas imágenes : 
 
 ![screenshot](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiObhZVWeg7SDtDnNEODeTinGGdSbqU56Qw8ka9WSV2GymI4A3wSGAxqmRVyJEfdyzSV2gGfZScSopo6MVe4NeymL5sz8chKz-5vwLNsWEqpNaQ_Z0hIfH6BcOtwGGWqeDlEQ0BoBNIfdPC1IHEei5dEqFRjyrnfvBr-YA0zJVPpUmfj1SDVsski84R/s1914/con1.png)
 
